@@ -30,13 +30,14 @@
         <!-- creation of modal (popup window) -->
       </div>
     </div>
-    <div>
+    <form>
         <h3>Password criteria</h3>
-        <form>
+        <div>
             <label for="passwordLength">Enter in lenth of password:</label>
             <input type="number" value="8" id="passwordLength" class="passwordLength" title="(at least 8 characters, but no more than 120)">
-            <br/>
-            <p>Character types to include in the password:</p>
+        </div>
+        <p>Character types to include in the password:</p>
+        <div>
             <input type="checkbox" name="characterType" id="lowercase">
             <label for="lowercase">Lowercase</label>
             <input type="checkbox" name="characterType" id="uppercase">
@@ -45,9 +46,11 @@
             <label for="numeric">Numerical</label>
             <input type="checkbox" name="characterType" id="specialCharacters">
             <label for="specialCharacters">Special Characters</label>
-            
-        </form>
-    </div>
+        </div>
+        <button type="submit">
+            Confirm
+        </button>
+    </form>
     <script src="./assets/java/script.js"></script>
   </body>
 </html>
