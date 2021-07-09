@@ -1,4 +1,31 @@
 // Assignment code here
+var clickGenerateButton = document.querySelector("data-modal-target");
+var clickConfirmButton = document.querySelector("data-confirm-button");
+var overlay = document.querySelector("overlay");
+
+clickGenerateButton.addEventListener("click", function(){
+  var modal = document.querySelector(button.dataset.modalTarget);
+  openModal(modal);
+})
+
+clickConfirmButton.addEventListener("click", function(){
+  var modal = button.closet(".modal");
+  openModal(modal);
+})
+
+function openModal(modal){
+  if (modal ==null) {
+    modal.classList.add("active");
+    overlay.classList.add("active");
+  }  
+}
+
+function closeModal(modal){
+  if (modal == null) {
+    modal.classList.remove("active");
+    overlay.classList.remove("active");
+  }  
+}
 function generatePassword(){
   //show modal pop up
 
