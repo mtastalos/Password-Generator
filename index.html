@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="./assets/sytles/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Password Generator</h1>
+      </header>
+      <div class="card">
+        <div class="card-header">
+          <h2>Generate a Password</h2>
+        </div>
+        <div class="card-body">
+          <textarea
+            readonly
+            id="password"
+            placeholder="Your Secure Password"
+            aria-label="Generated Password"
+          ></textarea>
+        </div>
+        <div class="card-footer">
+          <button id="generate" class="btn">Generate Password</button>
+        </div>
+        <!-- creation of modal (popup window) -->
+      </div>
+    </div>
+    <div>
+        <h3>Password criteria</h3>
+        <form>
+            <label for="passwordLength">Enter in lenth of password:</label>
+            <input type="number" value="8" id="passwordLength" class="passwordLength" title="(at least 8 characters, but no more than 120)">
+            <br/>
+            <p>Character types to include in the password:</p>
+            <input type="checkbox" name="characterType" id="lowercase">
+            <label for="lowercase">Lowercase</label>
+            <input type="checkbox" name="characterType" id="uppercase">
+            <label for="uppercase">Uppercase</label>
+            <input type="checkbox" name="characterType" id="numeric">
+            <label for="numeric">Numerical</label>
+            <input type="checkbox" name="characterType" id="specialCharacters">
+            <label for="specialCharacters">Special Characters</label>
+            
+        </form>
+    </div>
+    <script src="./assets/java/script.js"></script>
+  </body>
+</html>
