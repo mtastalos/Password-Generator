@@ -1,41 +1,38 @@
-// Assignment code here
-var clickGenerateButton = document.querySelector("data-modal-target");
-var clickConfirmButton = document.querySelector("data-confirm-button");
-var overlay = document.querySelector("overlay");
+//button elements
+var clickGenerateButton = document.getElementById("generate");
+var clickConfirmButton = document.getElementById("confirm");
+//modal elements
+var overlay = document.getElementById("overlay");
+var passFrom = document.getElementById("popup");
+//password parameters
+var length = document.getElementById("passwordLength").value;
+var length = document.getElementById("uppercase").checked;
+var length = document.getElementById("lowercase").checked;
+var length = document.getElementById("numeric").checked;
+var length = document.getElementById("specialCharacters").checked;
 
-clickGenerateButton.addEventListener("click", function(){
-  var modal = document.querySelector(button.dataset.modalTarget);
-  openModal(modal);
-})
-
-clickConfirmButton.addEventListener("click", function(){
-  var modal = button.closet(".modal");
-  openModal(modal);
-})
-
-function openModal(modal){
-  if (modal ==null) {
-    modal.classList.add("active");
-    overlay.classList.add("active");
-  }  
+//open popup window
+function openModal(){
+  passFrom.classList.add("active");
+  overlay.classList.add("active");
 }
 
-function closeModal(modal){
-  if (modal == null) {
-    modal.classList.remove("active");
-    overlay.classList.remove("active");
-  }  
+//close popup window
+function closeModal(){
+  passFrom.classList.remove("active");
+  overlay.classList.remove("active");
 }
+
+//parameter check
+function checkParam(){
+  var length = document.getElementById("passwordLength");
+
+}
+
+//generate password
 function generatePassword(){
-  //show modal pop up
-
-  //
   
-
 }
-
-// Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
@@ -47,4 +44,11 @@ function writePassword() {
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+clickGenerateButton.addEventListener("click", function(){
+  openModal();
+})
+
+clickConfirmButton.addEventListener("click", function(){
+  
+  closeModal();
+})

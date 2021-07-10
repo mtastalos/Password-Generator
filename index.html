@@ -25,12 +25,12 @@
           ></textarea>
         </div>
         <div class="card-footer">
-          <button data-modal-target="#modal" id="generate" class="btn">Generate Password</button>
+          <button id="generate" class="btn">Generate Password</button>
         </div>
         <!-- creation of modal (popup window) -->
       </div>
     </div>
-    <form class="popup">
+    <form class="popup" id="popup">
         <h3>Password criteria</h3>
         <div>
             <label for="passwordLength">Enter in lenth of password:</label>
@@ -47,7 +47,7 @@
             <input type="checkbox" name="characterType" id="specialCharacters">
             <label for="specialCharacters">Special Characters</label>
         </div>
-        <button data-confirm-button type="submit">
+        <button type="submit" id="confirm">
             Confirm
         </button>
     </form>
