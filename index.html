@@ -34,7 +34,7 @@
         <h3>Password criteria</h3>
         <div>
             <label for="passwordLength">Enter in lenth of password:</label>
-            <input type="number" value="8" id="passwordLength" class="passwordLength" title="(at least 8 characters, but no more than 120)">
+            <input type="number" value="8" id="passwordLength" min="8" max="120" title="(at least 8 characters, but no more than 120)">
         </div>
         <p>Character types to include in the password:</p>
         <div>
@@ -47,7 +47,7 @@
             <input type="checkbox" name="characterType" id="specialCharacters">
             <label for="specialCharacters">Special Characters</label>
         </div>
-        <button type="submit" id="confirm">
+        <button id="confirm">
             Confirm
         </button>
     </form>

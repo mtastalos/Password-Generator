@@ -4,12 +4,11 @@ var clickConfirmButton = document.getElementById("confirm");
 //modal elements
 var overlay = document.getElementById("overlay");
 var passFrom = document.getElementById("popup");
-//password parameters
-var length = document.getElementById("passwordLength").value;
-var length = document.getElementById("uppercase").checked;
-var length = document.getElementById("lowercase").checked;
-var length = document.getElementById("numeric").checked;
-var length = document.getElementById("specialCharacters").checked;
+//password values
+var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var numbers = "0123456789";
+var specialLetters = "!@#$%^&*()_+";
+var password = "";
 
 //open popup window
 function openModal(){
@@ -23,15 +22,57 @@ function closeModal(){
   overlay.classList.remove("active");
 }
 
-//parameter check
-function checkParam(){
-  var length = document.getElementById("passwordLength");
-
-}
-
 //generate password
 function generatePassword(){
-  
+    //password parameters
+    var lengthParm = document.getElementById("passwordLength").value;
+    var uppercaseParm = document.getElementById("uppercase").checked;
+    var lowercaseParm = document.getElementById("lowercase").checked;
+    var numbericParm = document.getElementById("numeric").checked;
+    var specialCharParm = document.getElementById("specialCharacters").checked;
+
+    //check to see if length is correct size 
+    if (lengthParm<8 || lengthParm > 120){
+      window.alert("Please select a passwordlength between 8 and 120 characters.")
+      return;
+    }
+    //check to see if at least one parameter was selected
+    else if ( uppercaseParm === false && lowercaseParm === false && numbericParm === false && specialCharParm === false){
+      window.alert("Please select at least one type to include in your password");
+      return;
+    }
+    else{
+      var password = "";
+      // var Params = [{uppercaseParmChecked,uppercaseParm}, {lowercaseParmChecked,lowercaseParm}, {numbericParmChecked,numbericParm}, {specialCharParmChecked,specialCharParm}];
+      for (i=0;i>lengthParm;i++){
+        var controller = true;
+        while (controller){
+          switch (Math.floor(Math.random()*4)){
+            case 0:
+              if(uppercaseParm===true){
+
+                controller = false;
+                break;
+              }
+            case 1:
+              if(lowercaseParm===true){
+                controller = false;
+                break;
+              }
+            case 2:
+              if(numbericParm===true){
+                controller = false;
+                break;
+              }
+            case 3:
+              if(specialCharParm===true){
+                controller = false;
+                break;
+              }
+          }//end of switch
+        }//end of while
+      }//when of for
+    }//end of else
 }
 
 // Write password to the #password input
@@ -48,7 +89,8 @@ clickGenerateButton.addEventListener("click", function(){
   openModal();
 })
 
-clickConfirmButton.addEventListener("click", function(){
-  
-  closeModal();
+clickConfirmButton.addEventListener("click", function(e){
+  //stops form from closing by itself
+  e.preventDefault();
+  generatePassword();
 })
