@@ -42,36 +42,45 @@ function generatePassword(){
       return;
     }
     else{
-      var password = "";
       // var Params = [{uppercaseParmChecked,uppercaseParm}, {lowercaseParmChecked,lowercaseParm}, {numbericParmChecked,numbericParm}, {specialCharParmChecked,specialCharParm}];
-      for (i=0;i>lengthParm;i++){
+      for (i=0;i<lengthParm;i++){
         var controller = true;
+        console.log(password);
         while (controller){
           switch (Math.floor(Math.random()*4)){
             case 0:
               if(uppercaseParm===true){
-
+                password += letters.charAt(Math.floor(Math.random()*letters.length+1));
                 controller = false;
                 break;
               }
+              break;
             case 1:
               if(lowercaseParm===true){
+                password += letters.charAt(Math.floor(Math.random()*letters.length+1)).toLowerCase();
                 controller = false;
                 break;
               }
+              break;
             case 2:
               if(numbericParm===true){
+                password += numbers.charAt(Math.floor(Math.random()*numbers.length+1));
                 controller = false;
                 break;
               }
+              break;
             case 3:
               if(specialCharParm===true){
+                password += specialLetters.charAt(Math.floor(Math.random()*specialLetters.length+1));
                 controller = false;
                 break;
               }
+              break;
           }//end of switch
         }//end of while
-      }//when of for
+      }//end of for
+      closeModal();
+      return password;
     }//end of else
 }
 
@@ -92,5 +101,5 @@ clickGenerateButton.addEventListener("click", function(){
 clickConfirmButton.addEventListener("click", function(e){
   //stops form from closing by itself
   e.preventDefault();
-  generatePassword();
+  writePassword();
 })
