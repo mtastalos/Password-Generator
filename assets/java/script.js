@@ -4,7 +4,7 @@ var clickConfirmButton = document.getElementById("confirm");
 //modal elements
 var overlay = document.getElementById("overlay");
 var passFrom = document.getElementById("popup");
-//password values
+//password values/parameter data
 var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var numbers = "0123456789";
 var specialLetters = "!@#$%^&*()_+";
@@ -24,7 +24,7 @@ function closeModal(){
 
 //generate password
 function generatePassword(){
-    //password parameters
+    //retrive password parameters selected
     var lengthParm = document.getElementById("passwordLength").value;
     var uppercaseParm = document.getElementById("uppercase").checked;
     var lowercaseParm = document.getElementById("lowercase").checked;
@@ -41,11 +41,13 @@ function generatePassword(){
       window.alert("Please select at least one type to include in your password");
       return;
     }
+    //begin generating password
     else{
       password = "";
+      //iterate the amount of the length
       for (i=0;i<lengthParm;i++){
         var controller = true;
-        console.log(password);
+        //randomly select a parameter, check if its selected, add random character, if not while loop continues 
         while (controller){
           switch (Math.floor(Math.random()*4)){
             case 0:
@@ -79,6 +81,58 @@ function generatePassword(){
           }//end of switch
         }//end of while
       }//end of for
+
+      //regenerate the password if a parameter is selected but not used
+      if(uppercaseParm===true){
+        for(ii=0; ii<password.length;ii++){
+          var check = password.charAt(ii)
+          test = letters.indexOf(check);
+          //if the character is not present, a "-1" is returned. Test for a single number to not = "-1" 
+          if (test !==-1){
+            break;
+          }
+          else if(test === -1 &&ii===password.length-1){
+            generatePassword();  
+          }            
+        }
+      }
+      if(lowercaseParm===true){
+        for(ii=0; ii<password.length;ii++){
+          var check = password.charAt(ii)
+          lowerLetters = letters.toLowerCase();
+          test = lowerLetters.indexOf(check);
+          if (test !==-1){
+            break;
+          }
+          else if(test === -1 &&ii===password.length-1){
+            generatePassword();
+          }            
+        }
+      }
+      if(numbericParm===true){
+        for(ii=0; ii<password.length;ii++){
+          var check = password.charAt(i)
+          test = numbers.indexOf(check);
+          if (test !==-1){
+            break;
+          }
+          else if(test === -1 &&ii===password.length-1){
+            generatePassword();
+          }            
+        }
+      }
+      if(specialCharParm===true){
+        for(ii=0; ii<password.length;ii++){
+          var check = password.charAt(ii)
+          test = specialLetters.indexOf(check);
+          if (test !==-1){
+            break;
+          }
+          else if(test === -1 &&ii===password.length-1){
+            generatePassword();
+          }
+        }
+      }
       closeModal();
       return password;
     }//end of else
