@@ -42,7 +42,7 @@ function generatePassword(){
       return;
     }
     else{
-      // var Params = [{uppercaseParmChecked,uppercaseParm}, {lowercaseParmChecked,lowercaseParm}, {numbericParmChecked,numbericParm}, {specialCharParmChecked,specialCharParm}];
+      password = "";
       for (i=0;i<lengthParm;i++){
         var controller = true;
         console.log(password);
@@ -50,28 +50,28 @@ function generatePassword(){
           switch (Math.floor(Math.random()*4)){
             case 0:
               if(uppercaseParm===true){
-                password += letters.charAt(Math.floor(Math.random()*letters.length+1));
+                password += letters.charAt(Math.floor(Math.random()*letters.length));
                 controller = false;
                 break;
               }
               break;
             case 1:
               if(lowercaseParm===true){
-                password += letters.charAt(Math.floor(Math.random()*letters.length+1)).toLowerCase();
+                password += letters.charAt(Math.floor(Math.random()*letters.length)).toLowerCase();
                 controller = false;
                 break;
               }
               break;
             case 2:
               if(numbericParm===true){
-                password += numbers.charAt(Math.floor(Math.random()*numbers.length+1));
+                password += numbers.charAt(Math.floor(Math.random()*numbers.length));
                 controller = false;
                 break;
               }
               break;
             case 3:
               if(specialCharParm===true){
-                password += specialLetters.charAt(Math.floor(Math.random()*specialLetters.length+1));
+                password += specialLetters.charAt(Math.floor(Math.random()*specialLetters.length));
                 controller = false;
                 break;
               }
