@@ -10,7 +10,7 @@ This will generate the user a password  depending on the specified length and se
 https://mtastalos.github.io/Strong-Password-Generator/
 
  ![](assets/images/website-part1.JPG)
- ![](assets/images/website-part1.JPG)
+ ![](assets/images/website-part2.JPG)
 
  ## Contribution
  Made By Michael Astalos 
