@@ -7,7 +7,7 @@ This will generate the user a password  depending on the specified length and se
 * JavaScript
 
 ## Website
-https://mtastalos.github.io/Strong-Password-Generator/
+https://mtastalos.github.io/Password-Generator/
 
  ![](assets/images/website-part1.JPG)
  ![](assets/images/website-part2.JPG)
